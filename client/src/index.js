@@ -6,7 +6,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import store from "./store/store";
 import { Provider } from "react-redux";
 import AppHeader from './components/AppHeader'
-import Customers from './components/Customers'
+import CustomerList from './components/Customers'
+import Customer from './components/Customer'
 import Home from './components/Home'
 
 
@@ -18,7 +19,8 @@ const Root = () => (
                     <AppHeader />
                     <Switch>
                         <Route exact path='/' component={Home}/>
-                        <Route path='/customers' component={Customers}/>
+                        <Route exact path='/customers' component={CustomerList}/>
+                        <Route path='/customers/:id' component={Customer}/>
                     </Switch>
                 </div>
             </BrowserRouter>
