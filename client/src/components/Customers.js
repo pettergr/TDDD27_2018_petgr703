@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { Button, Container, Table, Form } from "semantic-ui-react";
 import CustomerListRow from "./CustomerListRow";
+import connect from "reduxigen/connect";
+import * as customerActions from '../actions/customerActions';
+import axios from "axios";
 
 class Customers extends Component {
     constructor(props) {
@@ -17,6 +19,12 @@ class Customers extends Component {
     }
 
     componentDidMount() {
+        this.props.getCustomers();
+
+
+
+
+        /*
         axios
             .get("/customer")
             .then(response => {
@@ -37,7 +45,7 @@ class Customers extends Component {
                     data: `API call failed: ${error}`,
                     fetching: false
                 });
-            });
+            });*/
     }
 
     handleRemove(customer) {
@@ -103,7 +111,18 @@ class Customers extends Component {
                                 <Table.HeaderCell />
                             </Table.Row>
                         </Table.Header>
-                        <Table.Body>{this.state.data}</Table.Body>
+                        <Table.Body>
+                            {this.props.customers.map(customer => {
+                              const name = customer.name;
+                              return name ? (
+                                  <CustomerListRow
+                                      customer={customer}
+                                      key={customer._id}
+                                      onDelete={this.handleRemove}
+                                  />
+                              ) : null;
+                            })}
+                        </Table.Body>
                     </Table>
 
                     <Form onSubmit={this.handleSubmit}>
@@ -124,4 +143,4 @@ class Customers extends Component {
     }
 }
 
-export default Customers;
+export default connect(["customers", "customers_loading"], customerActions)(Customers);
