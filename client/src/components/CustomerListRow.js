@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table, Button, Icon } from "semantic-ui-react";
+import { Link } from 'react-router-dom'
 
 class CustomerListRow extends Component {
     render() {
@@ -13,7 +14,7 @@ class CustomerListRow extends Component {
         return (
             <Table.Row>
                 <Table.Cell>
-                    <a href={`/customers/${id}`}>{name}</a>
+                    <Link to={`/customers/${id}`}>{name}</Link>
                 </Table.Cell>
                 <Table.Cell>{id}</Table.Cell>
                 <Table.Cell>{phone}</Table.Cell>
