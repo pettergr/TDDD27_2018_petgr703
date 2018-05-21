@@ -2,76 +2,31 @@ import React, { Component } from "react";
 import { Button, Container, Table, Form } from "semantic-ui-react";
 import CustomerListRow from "./CustomerListRow";
 import connect from "reduxigen/connect";
-import * as customerActions from '../actions/customerActions';
+import * as actions from '../actions/customerActions';
 import axios from "axios";
 
 class Customers extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            data: null,
-            fetching: true,
-            value: ""
-        };
+        this.state = {value: ""};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.submitName.bind(this);
-        this.handleRemove = this.handleRemove.bind(this);
     }
 
     componentDidMount() {
         this.props.getCustomers();
-
-
-
-
-        /*
-        axios
-            .get("/customer")
-            .then(response => {
-                var rows = response.data.map(customer => (
-                    <CustomerListRow
-                        customer={customer}
-                        key={customer._id}
-                        onDelete={this.handleRemove}
-                    />
-                ));
-                this.setState({
-                    data: rows,
-                    fetching: false
-                });
-            })
-            .catch(error => {
-                this.setState({
-                    data: `API call failed: ${error}`,
-                    fetching: false
-                });
-            });*/
-    }
-
-    handleRemove(customer) {
-        var id = customer._id;
-        axios.delete(`/customer/${id}`);
-
-        var index = -1;
-        var tempData = this.state.data.slice();
-        for (var i = 0; i < tempData.length; i++) {
-            if (tempData[i].key === id) {
-                index = i;
-            }
-        }
-        if (index !== -1) {
-            tempData.splice(index, 1);
-            this.setState({
-                data: tempData
-            });
-        }
     }
 
     handleChange(event) {
+        console.log("handleChange")
         this.setState({ value: event.target.value });
     }
 
     submitName(event) {
+        console.log("submitName")
+        this.props.addCustomer(this.state.value);
+        this.setState({value: ""});
+        /*
         axios
             .post("/customer", { name: this.state.value })
             .then(response => {
@@ -93,7 +48,7 @@ class Customers extends Component {
             .catch(error => {
                 this.setState({});
             });
-        event.preventDefault();
+        event.preventDefault();*/
     }
 
     render() {
@@ -118,7 +73,7 @@ class Customers extends Component {
                                   <CustomerListRow
                                       customer={customer}
                                       key={customer._id}
-                                      onDelete={this.handleRemove}
+                                      onDelete={this.props.deleteCustomer}
                                   />
                               ) : null;
                             })}
@@ -143,4 +98,4 @@ class Customers extends Component {
     }
 }
 
-export default connect(["customers", "customers_loading"], customerActions)(Customers);
+export default connect(["customers", "customers_loading"], actions)(Customers);
