@@ -1,6 +1,6 @@
 export default {
-    customers: [],
+    /*customers: [],
     customersLoading: false,
     orders: [],
-    products: []
+    products: []*/
 };

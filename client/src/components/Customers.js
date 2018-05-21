@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, Container, Table, Form } from "semantic-ui-react";
 import CustomerListRow from "./CustomerListRow";
-import { connect } from "redux-zero/react";
-import actions from '../actions/customerActions';
+import { connect } from 'react-redux';
+import * as customerActions from '../actions/customerActions';
 import axios from "axios";
 
 class Customers extends Component {
@@ -18,40 +18,17 @@ class Customers extends Component {
     }
 
     handleChange(event) {
-        console.log("handleChange")
         this.setState({ value: event.target.value });
     }
 
     submitName(event) {
-        console.log("submitName")
         this.props.addCustomer(this.state.value);
         this.setState({value: ""});
-        /*
-        axios
-            .post("/customer", { name: this.state.value })
-            .then(response => {
-                var customer = response.data;
-                var tempData = this.state.data.slice();
-                tempData.push(
-                    <CustomerListRow
-                        customer={customer}
-                        key={customer._id}
-                        onDelete={this.handleRemove}
-                    />
-                );
-                this.setState({
-                    data: tempData,
-                    fetching: true,
-                    value: ""
-                });
-            })
-            .catch(error => {
-                this.setState({});
-            });
-        event.preventDefault();*/
     }
 
     render() {
+        const customerState = this.props.mappedCustomerState;
+        const customers = customerState.customers;
         return (
             <div className="">
                 <Container className="toplmul">
@@ -67,7 +44,7 @@ class Customers extends Component {
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
-                            {this.props.customers.map(customer => {
+                            {customers.map(customer => {
                               const name = customer.name;
                               return name ? (
                                   <CustomerListRow
@@ -98,6 +75,21 @@ class Customers extends Component {
     }
 }
 
+const mapStateToProps = (state,ownProps) => {
+    return {
+        mappedCustomerState: state.customerState
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        //you can now say this.props.mappedAppActions
+        getCustomers: () => dispatch(customerActions.getCustomers()),
+        addCustomer: (customerName) => dispatch(customerActions.addCustomer(customerName)),
+        deleteCustomer: (customerId) => dispatch(customerActions.deleteCustomer(customerId))
+    }
+}
+
 const mapToProps = ({ customers, customersLoading }) => ({ customers, customersLoading });
 
-export default connect(mapToProps, actions)(Customers);
+export default connect(mapStateToProps, mapDispatchToProps)(Customers);

@@ -1,9 +1,19 @@
-import createStore from 'redux-zero';
-import { applyMiddleware } from 'redux-zero/middleware';
-import { connect } from 'redux-zero/devtools';
+import {createStore, applyMiddleware} from 'redux';
+import axios from 'axios';
+import axiosMiddleware from 'redux-axios-middleware';
 import defaultState from "../state/state";
+import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from '../reducers';
 
-const middlewares = connect ? applyMiddleware(connect(defaultState)): [];
-const store = createStore(defaultState, middlewares);
+const client = axios.create({
+    baseURL:'',
+    responseType: 'json'
+});
+
+const middleware = [axiosMiddleware(client)];
+
+const store = createStore(rootReducer, defaultState, composeWithDevTools(
+    applyMiddleware(...middleware)
+));
 
 export default store;

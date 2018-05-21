@@ -24,7 +24,7 @@ class CustomerListRow extends Component {
                     <Button
                         color="red"
                         onClick={() => {
-                            this.props.onDelete(customer);
+                            this.props.onDelete(id);
                         }}
                     >
                         <Icon name="delete" />Delete
