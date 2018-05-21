@@ -1,7 +1,9 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
-import { rootReducer } from "reduxigen/actions";
+import createStore from 'redux-zero';
+import { applyMiddleware } from 'redux-zero/middleware';
+import { connect } from 'redux-zero/devtools';
 import defaultState from "../state/state";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export default createStore(rootReducer(defaultState), composeEnhancers(applyMiddleware(thunk)));
+const middlewares = connect ? applyMiddleware(connect(defaultState)): [];
+const store = createStore(defaultState, middlewares);
+
+export default store;

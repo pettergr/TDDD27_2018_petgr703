@@ -1,34 +1,63 @@
-import { update, asyncUpdate,  asyncAction } from "reduxigen/actions";
+import store from '../store/store';
+import { bindActions }  from 'redux-zero/utils';
 import axios from "axios";
 
-export const getCustomers = asyncUpdate(
-    "customers",
-    () => axios.get("/customer").then(function(response) {return response.data})
-);
+const actions = store => ({
+    getCustomers() {
+        store.setState({customersLoading: true});
 
-export const deleteCustomer = asyncAction(
-    "customers",
-    (value,state) => {
-        console.log("delete reduce")
-        return state.customers.filter(element => element._id !== value);
+        axios
+            .get("/customer")
+            .then(response => {
+                store.setState({
+                    customers: response.data,
+                    customersLoading: false
+                });
+            })
+            .catch(error => {
+                store.setState({
+                    error: true,
+                    customersLoading: false
+                });
+            });
     },
-    customer => {
+
+    deleteCustomer(state, customer) {
+        store.setState({customersLoading: true});
         const customerId = customer._id;
-        return axios.delete(`/customer/${customerId}`).then(function() {
-            console.log("delete axios");
-            return customerId});
-    }
-);
-
-export const addCustomer = asyncAction(
-    "customers",
-    (customer, state) => {
-        console.log("add reduce")
-        return [...state.customers, customer];
+        axios
+            .delete(`/customer/${customerId}`)
+            .then(response => {
+                store.setState({
+                    customers: state.customers.filter(element => element._id !== customerId),
+                    customersLoading: false
+                });
+            })
+            .catch(error => {
+                store.setState({
+                    error: true,
+                    customersLoading: false
+                });
+            });
     },
-    customerName => {
-        return axios.post("/customer", { name: customerName }).then(function(response) {
-            console.log("add axios");
-            return response.data});
+
+    addCustomer(state, customerName) {
+        store.setState({customersLoading: true});
+        axios
+            .post("/customer", { name: customerName })
+            .then(response => {
+                store.setState({
+                    customers: [...state.customers, response.data],
+                    customersLoading: false
+                });
+            })
+            .catch(error => {
+                store.setState({
+                    error: true,
+                    customersLoading: false
+                });
+            });
     }
-);
+});
+
+export default actions;

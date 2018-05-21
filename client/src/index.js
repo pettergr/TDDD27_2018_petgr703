@@ -4,7 +4,7 @@ import './css/index.css';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import store from "./store/store";
-import { Provider } from "react-redux";
+import { Provider } from 'redux-zero/react';
 import AppHeader from './components/AppHeader'
 import Customers from './components/Customers'
 import Customer from './components/Customer'

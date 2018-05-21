@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, Container, Table, Form } from "semantic-ui-react";
 import CustomerListRow from "./CustomerListRow";
-import connect from "reduxigen/connect";
-import * as actions from '../actions/customerActions';
+import { connect } from "redux-zero/react";
+import actions from '../actions/customerActions';
 import axios from "axios";
 
 class Customers extends Component {
@@ -98,4 +98,6 @@ class Customers extends Component {
     }
 }
 
-export default connect(["customers", "customers_loading"], actions)(Customers);
+const mapToProps = ({ customers, customersLoading }) => ({ customers, customersLoading });
+
+export default connect(mapToProps, actions)(Customers);
