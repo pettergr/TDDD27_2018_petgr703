@@ -90,6 +90,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const mapToProps = ({ customers, customersLoading }) => ({ customers, customersLoading });
-
 export default connect(mapStateToProps, mapDispatchToProps)(Customers);
