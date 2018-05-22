@@ -1,6 +1,3 @@
-import store from '../store/store';
-import axios from "axios";
-
 export const getCustomers = (): Action => ({
     type: 'SET_CUSTOMERS',
     payload: {

@@ -3,7 +3,6 @@ import { Button, Container, Table, Form } from "semantic-ui-react";
 import CustomerListRow from "./CustomerListRow";
 import { connect } from 'react-redux';
 import * as customerActions from '../actions/customerActions';
-import axios from "axios";
 
 class Customers extends Component {
     constructor(props) {
