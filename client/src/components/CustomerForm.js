@@ -15,8 +15,13 @@ import {
     TextAreaField
 } from "react-semantic-redux-form";
 
+
+
 const SimpleForm = props => {
-    const { handleSubmit, pristine, reset, submitting } = props;
+
+
+    const { handleSubmit, pristine, reset, submitting, id} = props;
+    console.log(id);
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
@@ -36,6 +41,13 @@ const SimpleForm = props => {
                         name="email"
                         type="text"
                         placeholder=""
+                    />
+                    <Field
+                        component={InputField}
+                        label="Customer ID"
+                        name="id"
+                        type="text"
+                        value={id}
                     />
                     </Grid.Column>
                     <Grid.Column>

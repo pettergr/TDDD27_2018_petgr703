@@ -7,7 +7,7 @@ import store from "./store/store";
 import { Provider } from 'react-redux';
 import AppHeader from './components/AppHeader'
 import Customers from './components/Customers'
-import Customer from './components/Customer'
+import Customer from './containers/Customer'
 import CustomerForm from './components/CustomerForm'
 import Home from './components/Home'
 

@@ -30,7 +30,7 @@ class Customers extends Component {
         const customers = customerState.customers;
         return (
             <div className="">
-                <Container className="topPadd">
+                <Container className="topBotPadd">
                     <Table sortable celled>
                         <Table.Header>
                             <Table.Row>
