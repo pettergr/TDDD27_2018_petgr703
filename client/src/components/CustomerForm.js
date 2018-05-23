@@ -73,13 +73,13 @@ let CustomerForm = props => {
                         <Field
                             component={InputField}
                             label="Address"
-                            name="addressline1"
+                            name="billingAddressLine1"
                             type="text"
                             placeholder=""
                         />
                         <Field
                             component={InputField}
-                            name="addressline2"
+                            name="billingAddressLine2"
                             type="text"
                             placeholder=""
                         />
@@ -87,14 +87,14 @@ let CustomerForm = props => {
                             <Field
                                 component={InputField}
                                 label="City"
-                                name="city"
+                                name="billingCity"
                                 type="text"
                                 placeholder=""
                             />
                             <Field
                                 component={InputField}
                                 label="ZIP"
-                                name="zip"
+                                name="billingZip"
                                 type="text"
                                 placeholder=""
                             />
@@ -103,14 +103,14 @@ let CustomerForm = props => {
                             <Field
                                 component={InputField}
                                 label="State"
-                                name="state"
+                                name="billingState"
                                 type="text"
                                 placeholder=""
                             />
                             <Field
                                 component={InputField}
                                 label="Country"
-                                name="country"
+                                name="billingCountry"
                                 type="text"
                                 placeholder=""
                             />
@@ -122,13 +122,13 @@ let CustomerForm = props => {
                         <Field
                             component={InputField}
                             label="Address"
-                            name="addressline1"
+                            name="shippingAddressLine1"
                             type="text"
                             placeholder=""
                         />
                         <Field
                             component={InputField}
-                            name="addressline2"
+                            name="shippingAddressLine2"
                             type="text"
                             placeholder=""
                         />
@@ -136,14 +136,14 @@ let CustomerForm = props => {
                             <Field
                                 component={InputField}
                                 label="City"
-                                name="city"
+                                name="shippingCity"
                                 type="text"
                                 placeholder=""
                             />
                             <Field
                                 component={InputField}
                                 label="ZIP"
-                                name="zip"
+                                name="shippingZip"
                                 type="text"
                                 placeholder=""
                             />
@@ -152,14 +152,14 @@ let CustomerForm = props => {
                             <Field
                                 component={InputField}
                                 label="State"
-                                name="state"
+                                name="shippingState"
                                 type="text"
                                 placeholder=""
                             />
                             <Field
                                 component={InputField}
                                 label="Country"
-                                name="country"
+                                name="shippingCountry"
                                 type="text"
                                 placeholder=""
                             />

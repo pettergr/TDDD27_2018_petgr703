@@ -47,26 +47,22 @@ module.exports = {
      * customerController.create()
      */
     create: function (req, res) {
-        var addresses = [];
-        var reqAddresses = req.body.addresses ? req.body.addresses : [];
-        reqAddresses.forEach(function(address) {
-            var tempaddress = new addressModel({
-                addressName : address.addressName,
-                addressLineOne : address.addressLineOne,
-                addressLineTwo : address.addressLineTwo,
-                city : address.city,
-                country : address.country,
-                state : address.state,
-                zip : address.zip
-            });
-            addresses.push(tempaddress);
-        });
         var customer = new customerModel({
 			name : req.body.name,
-			addresses : addresses,
-			phone : req.body.phone,
 			email : req.body.email,
-			website : req.body.website
+			notes : req.body.notes,
+			billingAddressLine1 : req.body.billingAddressLine1,
+			billingAddressLine2 : req.body.billingAddressLine2,
+			billingCity : req.body.billingCity,
+			billingZip : req.body.billingZip,
+			billingState : req.body.billingState,
+			billingCountry : req.body.billingCountry,
+			shippingAddressLine1 : req.body.shippingAddressLine1,
+			shippingAddressLine2 : req.body.shippingAddressLine2,
+			shippingCity : req.body.shippingCity,
+			shippingZip : req.body.shippingZip,
+			shippingState : req.body.shippingState,
+			shippingCountry : req.body.shippingCountry
 
         });
 
@@ -100,10 +96,20 @@ module.exports = {
             }
 
             customer.name = req.body.name ? req.body.name : customer.name;
-			customer.addresses = req.body.addresses ? req.body.addresses : customer.addresses;
-			customer.phone = req.body.phone ? req.body.phone : customer.phone;
 			customer.email = req.body.email ? req.body.email : customer.email;
-			customer.website = req.body.website ? req.body.website : customer.website;
+			customer.notes = req.body.notes ? req.body.notes : customer.notes;
+			customer.billingAddressLine1 = req.body.billingAddressLine1 ? req.body.billingAddressLine1 : customer.billingAddressLine1;
+			customer.billingAddressLine2 = req.body.billingAddressLine2 ? req.body.billingAddressLine2 : customer.billingAddressLine2;
+			customer.billingCity = req.body.billingCity ? req.body.billingCity : customer.billingCity;
+			customer.billingZip = req.body.billingZip ? req.body.billingZip : customer.billingZip;
+			customer.billingState = req.body.billingState ? req.body.billingState : customer.billingState;
+			customer.billingCountry = req.body.billingCountry ? req.body.billingCountry : customer.billingCountry;
+			customer.shippingAddressLine1 = req.body.shippingAddressLine1 ? req.body.shippingAddressLine1 : customer.shippingAddressLine1;
+			customer.shippingAddressLine2 = req.body.shippingAddressLine2 ? req.body.shippingAddressLine2 : customer.shippingAddressLine2;
+			customer.shippingCity = req.body.shippingCity ? req.body.shippingCity : customer.shippingCity;
+			customer.shippingZip = req.body.shippingZip ? req.body.shippingZip : customer.shippingZip;
+			customer.shippingState = req.body.shippingState ? req.body.shippingState : customer.shippingState;
+			customer.shippingCountry = req.body.shippingCountry ? req.body.shippingCountry : customer.shippingCountry;
 
             customer.save(function (err, customer) {
                 if (err) {
