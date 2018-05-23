@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Button, Container, Table, Form } from "semantic-ui-react";
+import { Button, Container, Table, Form, Icon } from "semantic-ui-react";
 import CustomerListRow from "./CustomerListRow";
 import { connect } from 'react-redux';
 import * as customerActions from '../actions/customerActions';
+import { Link } from "react-router-dom";
 
 class Customers extends Component {
     componentDidMount() {
@@ -39,6 +40,15 @@ class Customers extends Component {
                             })}
                         </Table.Body>
                     </Table>
+
+                    <div className = "topBotPadd">
+                        <Link to={`/customers/new`}>
+                            <Button color="green">
+                                <Icon name="edit" />
+                                Add new customer
+                            </Button>
+                        </Link>
+                    </div>
                 </Container>
             </div>
         );
