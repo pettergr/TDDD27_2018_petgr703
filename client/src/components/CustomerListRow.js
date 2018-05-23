@@ -21,14 +21,13 @@ class CustomerListRow extends Component {
                 <Table.Cell>{email}</Table.Cell>
                 <Table.Cell>{website}</Table.Cell>
                 <Table.Cell>
-                    <Button
-                        color="red"
-                        onClick={() => {
-                            this.props.onDelete(id);
-                        }}
-                    >
-                        <Icon name="delete" />Delete
+                <Link to={`/customers/${id}/edit`}>
+                    <Button color="blue">
+                        <Icon name="edit" />
+                        Edit
                     </Button>
+                </Link>
+
                 </Table.Cell>
             </Table.Row>
         );

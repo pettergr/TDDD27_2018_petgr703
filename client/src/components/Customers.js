@@ -5,24 +5,8 @@ import { connect } from 'react-redux';
 import * as customerActions from '../actions/customerActions';
 
 class Customers extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ""};
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.submitName.bind(this);
-    }
-
     componentDidMount() {
         this.props.getCustomers();
-    }
-
-    handleChange(event) {
-        this.setState({ value: event.target.value });
-    }
-
-    submitName(event) {
-        this.props.addCustomer(this.state.value);
-        this.setState({value: ""});
     }
 
     render() {
@@ -55,19 +39,6 @@ class Customers extends Component {
                             })}
                         </Table.Body>
                     </Table>
-
-                    <Form onSubmit={this.handleSubmit}>
-                        <Form.Field>
-                            <label>Name</label>
-                            <input
-                                placeholder="Name"
-                                value={this.state.value}
-                                onChange={this.handleChange}
-                            />
-                        </Form.Field>
-
-                        <Button type="submit">Submit</Button>
-                    </Form>
                 </Container>
             </div>
         );

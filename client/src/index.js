@@ -7,6 +7,7 @@ import store from "./store/store";
 import { Provider } from 'react-redux';
 import AppHeader from './components/AppHeader'
 import Customers from './components/Customers'
+import CustomerView from './components/CustomerView'
 import Customer from './containers/Customer'
 import CustomerForm from './components/CustomerForm'
 import Home from './components/Home'
@@ -22,7 +23,8 @@ const Root = () => (
                         <Route exact path='/' component={Home}/>
                         <Route exact path='/customers' component={Customers}/>
                         <Route exact path='/customers/new' component={Customer}/>
-                        <Route path='/customers/:id' component={Customer}/>
+                        <Route path='/customers/:id/edit' component={Customer}/>
+                        <Route path='/customers/:id' component={CustomerView}/>
                     </Switch>
                 </div>
             </BrowserRouter>
