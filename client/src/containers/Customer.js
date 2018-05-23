@@ -5,6 +5,7 @@ import * as customerActions from '../actions/customerActions';
 
 class Customer extends Component {
     componentWillMount() {
+        console.log("xd");
         if (this.props.match.params.id !== undefined) {
             var customerId = this.props.match.params.id;
             this.props.getCustomer(customerId);
@@ -16,6 +17,8 @@ class Customer extends Component {
             });
         }
         else {
+            this.props.resetActiveCustomer();
+            console.log("xd");
             this.setState({
                 id: 0,
                 submitFunction: this.props.addCustomer
@@ -37,7 +40,8 @@ const mapDispatchToProps = dispatch => {
         //you can now say this.props.mappedAppActions
         editCustomer: (customer) => dispatch(customerActions.editCustomer(customer)),
         addCustomer: (customer) => dispatch(customerActions.addCustomer(customer)),
-        getCustomer: (customerId) => dispatch(customerActions.getCustomer(customerId))
+        getCustomer: (customerId) => dispatch(customerActions.getCustomer(customerId)),
+        resetActiveCustomer: () => dispatch(customerActions.resetActiveCustomer())
     };
 };
 

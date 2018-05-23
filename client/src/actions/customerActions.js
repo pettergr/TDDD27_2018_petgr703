@@ -13,9 +13,7 @@ export const addCustomer = (customer): Action => ({
         request: {
             method: 'POST',
             url: '/customer',
-            data: {
-                name: customer.customerName
-            }
+            data: customer
         }
     }
 });
@@ -35,10 +33,8 @@ export const editCustomer = (customer): Action => ({
     payload: {
         request: {
             method: 'PUT',
-            url: `/customer/${customer.id}`,
-            data: {
-                name: customer.customerName
-            }
+            url: `/customer/${customer._id}`,
+            data: customer
         }
     }
 });
@@ -51,4 +47,8 @@ export const getCustomer = (customerId): Action => ({
             url: `/customer/${customerId}`
         }
     }
+});
+
+export const resetActiveCustomer = (): Action => ({
+    type: 'RESET_ACTIVE_CUSTOMER'
 });

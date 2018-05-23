@@ -26,6 +26,7 @@ const customerReducer = (state = {customers: [], activeCustomer: {}}, action) =>
             })
 
         case 'GET_CUSTOMER_FAIL':
+        case 'RESET_ACTIVE_CUSTOMER':
             return Object.assign({}, state, {
                 activeCustomer: {}
             })

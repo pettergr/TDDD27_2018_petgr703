@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import {
     Form,
@@ -17,11 +18,8 @@ import {
 
 
 
-const SimpleForm = props => {
-
-
-    const { handleSubmit, pristine, reset, submitting, id} = props;
-    console.log(id);
+let CustomerForm = props => {
+    const { handleSubmit, pristine, reset, submitting} = props;
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
@@ -31,7 +29,7 @@ const SimpleForm = props => {
                     <Field
                         component={InputField}
                         label="Customer Name"
-                        name="customerName"
+                        name="name"
                         type="text"
                         placeholder=""
                     />
@@ -45,9 +43,8 @@ const SimpleForm = props => {
                     <Field
                         component={InputField}
                         label="Customer ID"
-                        name="id"
+                        name="_id"
                         type="text"
-                        value={id}
                     />
                     </Grid.Column>
                     <Grid.Column>
@@ -178,6 +175,6 @@ const SimpleForm = props => {
     );
 };
 
-export default reduxForm({
-    form: "simple" // a unique identifier for this form
-})(SimpleForm);
+CustomerForm = reduxForm({form: "customerForm", enableReinitialize: true})(CustomerForm)
+CustomerForm = connect((state, ownProps) => ({initialValues: state.customerState.activeCustomer}))(CustomerForm)
+export default CustomerForm
