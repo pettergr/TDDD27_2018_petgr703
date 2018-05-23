@@ -40,7 +40,7 @@ module.exports = {
                     email: user.email,
                     name: user.name,
                     _id: user._id
-                }, 'RESTFULAPIs')
+                },  process.env.JWT_SECRET)
             });
         });
     },

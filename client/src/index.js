@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import AppHeader from './components/AppHeader'
 import Customers from './components/Customers'
 import Customer from './components/Customer'
+import CustomerForm from './components/CustomerForm'
 import Home from './components/Home'
 
 
@@ -20,6 +21,7 @@ const Root = () => (
                     <Switch>
                         <Route exact path='/' component={Home}/>
                         <Route exact path='/customers' component={Customers}/>
+                        <Route exact path='/customers/new' component={CustomerForm}/>
                         <Route path='/customers/:id' component={Customer}/>
                     </Switch>
                 </div>
