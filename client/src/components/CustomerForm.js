@@ -20,6 +20,7 @@ const SimpleForm = props => {
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
+            <div className="topBotPadd">
                 <Grid columns="two">
                 <Grid.Column>
                     <Field
@@ -45,9 +46,11 @@ const SimpleForm = props => {
                     />
                     </Grid.Column>
                 </Grid>
+                </div>
 
                 <Divider />
-                <Grid columns="two" divided="true">
+                <div className="topBotPadd">
+                <Grid columns="two" divided={true}>
                     <Grid.Column>
                         <h3>Billing address</h3>
                         <Field
@@ -146,6 +149,7 @@ const SimpleForm = props => {
                         </Form.Group>
                     </Grid.Column>
                 </Grid>
+                </div>
 
 
                 <Button type="submit" disabled={pristine || submitting}>
