@@ -161,11 +161,12 @@ let CustomerForm = props => {
                 </div>
 
 
-                <Button type="submit" disabled={pristine || submitting}>
-                    Submit
+                <Button type="submit" color="green" disabled={pristine || submitting}>
+                    Save
                 </Button>
                 <Button
                     type="button"
+                    color="red"
                     disabled={pristine || submitting}
                     onClick={reset}>
                     Clear Values
