@@ -11,7 +11,13 @@ const customerReducer = (state = {customers: [], activeCustomer: {}}, action) =>
                 customers: [
                     ...state.customers,
                     action.payload.data
-                ]
+                ],
+                activeCustomer: action.payload.data
+            })
+
+        case 'EDIT_CUSTOMER_SUCCESS':
+            return Object.assign({}, state, {
+                activeCustomer: action.payload.data
             })
 
         case 'DELETE_CUSTOMER_SUCCESS':
