@@ -6,7 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import store from "./store/store";
 import { Provider } from 'react-redux';
 import AppHeader from './components/AppHeader'
-import Customers from './components/Customers'
+import Customers from './containers/Customers'
 import CustomerView from './components/CustomerView'
 import Customer from './containers/Customer'
 import CustomerForm from './components/CustomerForm'
