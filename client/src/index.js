@@ -9,7 +9,6 @@ import AppHeader from './components/AppHeader'
 import Customers from './containers/Customers'
 import CustomerView from './components/CustomerView'
 import Customer from './containers/Customer'
-import CustomerForm from './components/CustomerForm'
 import Home from './components/Home'
 
 

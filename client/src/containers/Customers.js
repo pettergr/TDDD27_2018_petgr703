@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Button, Container, Table, Form, Icon } from "semantic-ui-react";
 import { connect } from 'react-redux';
 import * as customerActions from '../actions/customerActions';
-import { Link } from "react-router-dom";
 import List from "../components/List";
 import ListRow from "../components/ListRow";
 

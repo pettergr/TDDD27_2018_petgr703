@@ -11,8 +11,6 @@ import {
     Divider
 } from "semantic-ui-react";
 import {
-    LabelInputField,
-    CheckboxField,
     InputField,
     TextAreaField
 } from "react-semantic-redux-form";
