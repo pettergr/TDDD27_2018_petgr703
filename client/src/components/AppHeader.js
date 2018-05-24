@@ -15,6 +15,9 @@ const AppHeader = () => (
                 <Menu.Item>
                     <Link to="/orders">Orders</Link>
                 </Menu.Item>
+                <Menu.Item>
+                    <Link to="/products">Products</Link>
+                </Menu.Item>
             </Menu>
         </header>
     </Container>

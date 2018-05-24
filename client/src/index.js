@@ -9,6 +9,9 @@ import AppHeader from './components/AppHeader'
 import Customers from './containers/Customers'
 import CustomerView from './components/CustomerView'
 import Customer from './containers/Customer'
+import Products from './containers/Products'
+import ProductView from './components/ProductView'
+import Product from './containers/Product'
 import Home from './components/Home'
 
 
@@ -22,8 +25,12 @@ const Root = () => (
                         <Route exact path='/' component={Home}/>
                         <Route exact path='/customers' component={Customers}/>
                         <Route exact path='/customers/new' component={Customer}/>
+                        <Route exact path='/products' component={Products}/>
+                        <Route exact path='/products/new' component={Product}/>
                         <Route path='/customers/:id/edit' component={Customer}/>
                         <Route path='/customers/:id' component={CustomerView}/>
+                        <Route path='/products/:id/edit' component={Product}/>
+                        <Route path='/products/:id' component={ProductView}/>
                     </Switch>
                 </div>
             </BrowserRouter>

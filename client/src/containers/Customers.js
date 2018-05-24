@@ -36,7 +36,6 @@ class Customers extends Component {
                     />
                 ))}
             />
-
         );
     }
 }

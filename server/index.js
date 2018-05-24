@@ -32,8 +32,10 @@ var db = require('./db/mongoose');
 
 //ROUTES
 var customerRoutes = require('./routes/customerRoutes');
+var productRoutes = require('./routes/productRoutes');
 var userRoutes = require('./routes/userRoutes');
 app.use('/customer', customerRoutes);
+app.use('/product', productRoutes);
 app.use('/user', userRoutes);
 
 app.get('/api', function (request, response) {
