@@ -4,6 +4,11 @@ import CustomerForm from "../components/CustomerForm";
 import * as customerActions from '../actions/customerActions';
 
 class Customer extends Component {
+    /*
+    When the container mounts we look at the parameters sent from
+    the router. If an id is supplied we want to use the form to edit
+    a customer, if not, we want to create a new customer.
+    */
     componentWillMount() {
         if (this.props.match.params.id !== undefined) {
             var customerId = this.props.match.params.id;
@@ -14,6 +19,7 @@ class Customer extends Component {
             });
         }
         else {
+            // Reset active customer so that the form will be empty
             this.props.resetActiveCustomer();
             this.setState({
                 id: 0,
