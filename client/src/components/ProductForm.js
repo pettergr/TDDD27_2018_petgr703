@@ -51,6 +51,7 @@ let ProductForm = props => {
                         label="Product ID"
                         name="_id"
                         type="text"
+                        disabled={true}
                     />
                     </Grid.Column>
                     <Grid.Column>
