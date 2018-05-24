@@ -15,7 +15,6 @@ class Customers extends Component {
         const headerList = ['Name', 'ID', 'Phone', 'Email', 'Website'];
         const createNewLink = '/customers/new';
         const createNewLinkText = 'Add new customer'
-        console.log(headerList);
         return (
             <List
                 headerList={headerList}

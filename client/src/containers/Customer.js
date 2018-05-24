@@ -5,12 +5,9 @@ import * as customerActions from '../actions/customerActions';
 
 class Customer extends Component {
     componentWillMount() {
-        console.log("xd");
         if (this.props.match.params.id !== undefined) {
             var customerId = this.props.match.params.id;
             this.props.getCustomer(customerId);
-            console.log("lmul");
-            console.log(this.props.match.params.id);
             this.setState({
                 id: this.props.match.params.id,
                 submitFunction: this.props.editCustomer
@@ -18,7 +15,6 @@ class Customer extends Component {
         }
         else {
             this.props.resetActiveCustomer();
-            console.log("xd");
             this.setState({
                 id: 0,
                 submitFunction: this.props.addCustomer
