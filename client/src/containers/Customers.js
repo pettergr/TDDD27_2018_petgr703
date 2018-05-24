@@ -12,7 +12,7 @@ class Customers extends Component {
     render() {
         const customerState = this.props.mappedCustomerState;
         const customers = customerState.customers;
-        const headerList = ['Name', 'ID', 'Phone', 'Email', 'Website'];
+        const headerList = ['Name', 'ID', 'Phone', 'Email', 'Notes'];
         const createNewLink = '/customers/new';
         const createNewLinkText = 'Add new customer'
         return (
@@ -27,11 +27,12 @@ class Customers extends Component {
                             customer._id,
                             customer.phone,
                             customer.email,
-                            customer.website
+                            customer.notes
                         ]}
                         link={`/customers/${customer._id}`}
                         id={customer._id}
                         key={customer._id}
+                        onDelete={this.props.deleteCustomer}
                     />
                 ))}
             />

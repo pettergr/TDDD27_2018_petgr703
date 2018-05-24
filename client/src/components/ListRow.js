@@ -3,7 +3,7 @@ import { Table, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const List = props => {
-    const { cellList, id, link} = props;
+    const { cellList, id, link, onDelete} = props;
     return (
         <Table.Row key={id}>
             <Table.Cell><Link to={link}>{cellList[0]}</Link></Table.Cell>
@@ -18,6 +18,13 @@ const List = props => {
                         Edit
                     </Button>
                 </Link>
+                <Button color="red"
+                        onClick={() => {
+                            onDelete(id);
+                        }}
+                >
+                    <Icon name="delete" />Delete
+                </Button>
             </Table.Cell>
         </Table.Row>
     );
