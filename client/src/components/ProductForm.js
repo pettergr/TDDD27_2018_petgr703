@@ -8,7 +8,8 @@ import {
     Button,
     Container,
     Grid,
-    Divider
+    Divider,
+    Message
 } from "semantic-ui-react";
 import {
     InputField,
@@ -18,17 +19,24 @@ import {
 
 
 let ProductForm = props => {
-    const { handleSubmit, pristine, reset, submitting} = props;
+    const { handleSubmit, pristine, reset, submitting, submitSucceeded} = props;
     return (
         <Container>
-        <div className="topBotPadd">
+        <div className="topPadd">
             <Link to={`/products`}>
                 <Button color="blue">
                     <Icon name="arrow left" />
                     Back to product list
                 </Button>
             </Link>
-            <Form onSubmit={handleSubmit} loading={submitting}>
+            <Form onSubmit={handleSubmit} loading={submitting} success={submitSucceeded && pristine}>
+            <div className = "topPadd">
+                <Message
+                    success
+                    header='Form Completed'
+                    content="Product submitted successfully"
+                />
+            </div>
             <div className="topBotPadd">
                 <Grid columns="two">
                 <Grid.Column>
