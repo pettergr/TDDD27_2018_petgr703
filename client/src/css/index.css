@@ -12,3 +12,7 @@ body {
 .topPadd {
     padding-top: 30px;
 }
+
+.topMargin {
+    margin-top: 30px !important;
+}

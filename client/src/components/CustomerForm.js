@@ -30,13 +30,14 @@ let CustomerForm = props => {
                 </Button>
             </Link>
             <Form onSubmit={handleSubmit} loading={submitting} success={submitSucceeded && pristine}>
-            <div className = "topPadd">
-                <Message
-                    success
-                    header='Form Completed'
-                    content="Customer submitted successfully"
-                />
-            </div>
+
+            <Message
+                success
+                header='Form Completed'
+                content="Customer submitted successfully"
+                className="topMargin"
+            />
+            
             <div className="topBotPadd">
                 <Grid columns="two">
                 <Grid.Column>
