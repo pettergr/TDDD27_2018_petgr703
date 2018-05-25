@@ -28,7 +28,7 @@ let ProductForm = props => {
                     Back to product list
                 </Button>
             </Link>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} loading={submitting}>
             <div className="topBotPadd">
                 <Grid columns="two">
                 <Grid.Column>
