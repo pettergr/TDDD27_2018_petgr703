@@ -19,7 +19,7 @@ import {
 
 const OrderLines = ({ fields }) => (
 	<div className="topBotPadd">
-	<Button color="green" onClick={() => fields.push({})}>Add Order Line</Button>
+	<Button type="button" color="green" onClick={() => fields.push({})}>Add Order Line</Button>
 	<Table sortable celled>
 		<Table.Header>
 			<Table.Row>
