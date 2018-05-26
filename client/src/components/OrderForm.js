@@ -18,7 +18,7 @@ import {
 } from "react-semantic-redux-form";
 
 const OrderLines = ({ fields }) => (
-	<div>
+	<div className="topBotPadd">
 	<Button color="green" onClick={() => fields.push({})}>Add Order Line</Button>
 	<Table sortable celled>
 		<Table.Header>

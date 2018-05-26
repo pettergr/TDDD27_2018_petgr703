@@ -12,7 +12,7 @@ class Orders extends Component {
     render() {
         const orderState = this.props.mappedOrderState;
         const orders = orderState.orders;
-        const headerList = ['Name', 'ID', 'Phone', 'Email', 'Notes'];
+        const headerList = ['Customer name', 'ID', 'Order date', 'Email', 'Notes'];
         const createNewLink = '/orders/new';
         const createNewLinkText = 'Add new order'
         return (
@@ -23,9 +23,9 @@ class Orders extends Component {
                 bodyItemList={orders.map(order => (
                     <ListRow
                         cellList={[
-                            order.name,
+                            order.customerName,
                             order._id,
-                            order.phone,
+                            order.date,
                             order.email,
                             order.notes
                         ]}
