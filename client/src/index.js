@@ -27,10 +27,14 @@ const Root = () => (
                         <Route exact path='/customers/new' component={Customer}/>
                         <Route exact path='/products' component={Products}/>
                         <Route exact path='/products/new' component={Product}/>
+						<Route exact path='/orders' component={Orders}/>
+                        <Route exact path='/orders/new' component={Order}/>
                         <Route path='/customers/:id/edit' component={Customer}/>
                         <Route path='/customers/:id' component={CustomerView}/>
                         <Route path='/products/:id/edit' component={Product}/>
                         <Route path='/products/:id' component={ProductView}/>
+						<Route path='/orders/:id/edit' component={Order}/>
+                        <Route path='/orders/:id' component={OrderView}/>
                     </Switch>
                 </div>
             </BrowserRouter>
