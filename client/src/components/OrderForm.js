@@ -43,15 +43,22 @@ let OrderForm = props => {
                 <Grid.Column>
                     <Field
                         component={InputField}
-                        label="Order Name"
-                        name="name"
+                        label="Customer name"
+                        name="customerName"
                         type="text"
                         placeholder=""
                     />
                     <Field
                         component={InputField}
-                        label="Email"
-                        name="email"
+                        label="Customer email"
+                        name="customerEmail"
+                        type="text"
+                        placeholder=""
+                    />
+					<Field
+                        component={InputField}
+                        label="Contact"
+                        name="contact"
                         type="text"
                         placeholder=""
                     />
@@ -64,11 +71,32 @@ let OrderForm = props => {
                     />
                     </Grid.Column>
                     <Grid.Column>
-                    <Field
-                        label="Notes"
-                        name="notes"
-                        component={TextAreaField}
+					<Field
+                        component={InputField}
+                        label="Order date"
+                        name="date"
+                        type="text"
+                        placeholder=""
                     />
+					<Field
+                        component={InputField}
+                        label="Order status"
+                        name="status"
+                        type="text"
+                        placeholder=""
+                    />
+					<Field
+                        component={InputField}
+                        label="PO number"
+                        name="poNumber"
+                        type="text"
+                        placeholder=""
+                    />
+					<Field
+						label="Notes"
+						name="notes"
+						component={TextAreaField}
+					/>
                     </Grid.Column>
                 </Grid>
                 </div>
