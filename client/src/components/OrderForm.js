@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Field, reduxForm } from "redux-form";
+import { Field, FieldArray, reduxForm } from "redux-form";
 import { Link } from "react-router-dom";
 import {
     Form,
@@ -9,13 +9,63 @@ import {
     Container,
     Grid,
     Divider,
-    Message
+    Message,
+	Table
 } from "semantic-ui-react";
 import {
     InputField,
     TextAreaField
 } from "react-semantic-redux-form";
 
+const OrderLines = ({ fields }) => (
+	<div>
+	<Button color="green" onClick={() => fields.push({})}>Add Order Line</Button>
+	<Table sortable celled>
+		<Table.Header>
+			<Table.Row>
+				<Table.HeaderCell>Artice number</Table.HeaderCell>
+				<Table.HeaderCell>Amount</Table.HeaderCell>
+				<Table.HeaderCell>Price</Table.HeaderCell>
+				<Table.HeaderCell></Table.HeaderCell>
+			</Table.Row>
+		</Table.Header>
+		<Table.Body>
+		{fields.map((member, index) =>
+			<Table.Row key={index}>
+				<Table.Cell>
+					<Field
+						component={InputField}
+						name={`${member}.articleNumber`}
+						type="text"
+						placeholder=""
+					/>
+				</Table.Cell>
+				<Table.Cell>
+					<Field
+						component={InputField}
+						name={`${member}.amount`}
+						type="text"
+						placeholder=""
+					/>
+				</Table.Cell>
+				<Table.Cell>
+					<Field
+						component={InputField}
+						name={`${member}.price`}
+						type="text"
+						placeholder=""
+					/>
+				</Table.Cell>
+				<Table.Cell>
+					<Button color="red" onClick={() => fields.remove(index)}>
+						Remove
+					</Button>
+				</Table.Cell>
+			</Table.Row>)}
+		</Table.Body>
+	</Table>
+	</div>
+)
 
 
 let OrderForm = props => {
@@ -203,6 +253,11 @@ let OrderForm = props => {
                     </Grid.Column>
                 </Grid>
                 </div>
+
+				<FieldArray
+					component={OrderLines}
+					name="orderLines"
+				/>
 
 
                 <Button type="submit" color="green" disabled={pristine || submitting}>
