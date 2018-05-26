@@ -12,6 +12,9 @@ import Customer from './containers/Customer'
 import Products from './containers/Products'
 import ProductView from './components/ProductView'
 import Product from './containers/Product'
+import Orders from './containers/Orders'
+import OrderView from './components/OrderView'
+import Order from './containers/Order'
 import Home from './components/Home'
 
 
