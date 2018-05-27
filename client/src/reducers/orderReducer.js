@@ -21,7 +21,7 @@ const orderReducer = (state = {orders: [], activeOrder: {}}, action) => {
             })
 
         case 'DELETE_ORDER_SUCCESS':
-            let orderId = action.meta.previousAction.payload.request.url.substring(10);
+            let orderId = action.meta.previousAction.payload.request.url.substring(7);
             return Object.assign({}, state, {
                 orders: state.orders.filter(elem => elem._id !== orderId),
             })

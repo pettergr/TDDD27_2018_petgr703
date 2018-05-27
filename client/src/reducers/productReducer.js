@@ -21,7 +21,7 @@ const productReducer = (state = {products: [], activeProduct: {}}, action) => {
             })
 
         case 'DELETE_PRODUCT_SUCCESS':
-            let prodId = action.meta.previousAction.payload.request.url.substring(10);
+            let prodId = action.meta.previousAction.payload.request.url.substring(9);
             return Object.assign({}, state, {
                 products: state.products.filter(elem => elem._id !== prodId),
             })

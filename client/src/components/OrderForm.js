@@ -69,7 +69,7 @@ const OrderLines = ({ fields }) => (
 
 
 let OrderForm = props => {
-    const { handleSubmit, pristine, reset, submitting, submitSucceeded} = props;
+    const { handleSubmit, pristine, reset, submitting, submitSucceeded, submitRow} = props;
     return (
         <Container>
         <div className="topBotPadd">
@@ -260,6 +260,8 @@ let OrderForm = props => {
 				/>
 
 
+
+
                 <Button type="submit" color="green" disabled={pristine || submitting}>
                     Save
                 </Button>
@@ -271,6 +273,7 @@ let OrderForm = props => {
                     Clear Values
                 </Button>
             </Form>
+
             </div>
         </Container>
     );
