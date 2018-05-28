@@ -8,7 +8,6 @@ import {
     Button,
     Container,
     Grid,
-    Divider,
     Message
 } from "semantic-ui-react";
 import {

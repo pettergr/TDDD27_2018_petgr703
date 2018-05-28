@@ -69,7 +69,7 @@ const OrderLines = ({ fields }) => (
 
 
 let OrderForm = props => {
-    const { handleSubmit, pristine, reset, submitting, submitSucceeded, submitRow} = props;
+    const { handleSubmit, pristine, reset, submitting, submitSucceeded } = props;
     return (
         <Container>
         <div className="topBotPadd">
