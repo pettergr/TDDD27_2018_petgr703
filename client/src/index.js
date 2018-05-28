@@ -42,7 +42,7 @@ const Root = () => (
                 <div>
                     <AppHeader />
                     <Switch>
-                        <Route exact path="/" component={Home} />
+                        <PrivateRoute exact path="/" component={Home} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={Home} />
                         <PrivateRoute exact path="/customers" component={Customers} />
