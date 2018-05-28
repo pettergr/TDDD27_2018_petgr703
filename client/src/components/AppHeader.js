@@ -24,7 +24,6 @@ const AppHeader = () => (
                         <Link to={`/`}>
                             <Button primary
                             onClick={() => {
-                                console.log("click")
                                 Auth.logOut();
                             }}>
                                 Log out</Button>
