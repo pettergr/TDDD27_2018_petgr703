@@ -20,7 +20,7 @@ const AppHeader = () => (
                     <Menu.Item>
                         <Link to="/products">Products</Link>
                     </Menu.Item>
-                    <Menu.Item>
+                    <Menu.Item position="right">
                         <Link to={`/`}>
                             <Button primary
                             onClick={() => {
