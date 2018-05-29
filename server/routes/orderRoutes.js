@@ -1,30 +1,31 @@
 var express = require('express');
 var router = express.Router();
 var orderController = require('../controllers/orderController.js');
+var userController = require('../controllers/userController.js');
 
 /*
  * GET
  */
-router.get('/', orderController.list);
+router.get('/', userController.loginRequired, orderController.list);
 
 /*
  * GET
  */
-router.get('/:id', orderController.show);
+router.get('/:id', userController.loginRequired, orderController.show);
 
 /*
  * POST
  */
-router.post('/', orderController.create);
+router.post('/', userController.loginRequired, orderController.create);
 
 /*
  * PUT
  */
-router.put('/:id', orderController.update);
+router.put('/:id', userController.loginRequired, orderController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', orderController.remove);
+router.delete('/:id', userController.loginRequired, orderController.remove);
 
 module.exports = router;

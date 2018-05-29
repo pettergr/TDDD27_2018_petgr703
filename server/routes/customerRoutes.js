@@ -1,30 +1,31 @@
 var express = require('express');
 var router = express.Router();
 var customerController = require('../controllers/customerController.js');
+var userController = require('../controllers/userController.js');
 
 /*
  * GET
  */
-router.get('/', customerController.list);
+router.get('/', userController.loginRequired, customerController.list);
 
 /*
  * GET
  */
-router.get('/:id', customerController.show);
+router.get('/:id', userController.loginRequired, customerController.show);
 
 /*
  * POST
  */
-router.post('/', customerController.create);
+router.post('/', userController.loginRequired, customerController.create);
 
 /*
  * PUT
  */
-router.put('/:id', customerController.update);
+router.put('/:id', userController.loginRequired, customerController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', customerController.remove);
+router.delete('/:id', userController.loginRequired, customerController.remove);
 
 module.exports = router;
