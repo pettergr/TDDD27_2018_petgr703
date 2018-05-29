@@ -16,7 +16,7 @@ class Login extends Component {
     submitLogin(loginData) {
         axios.post("user/sign_in", loginData)
             .then(res => {
-                const token = res.data;
+                const token = res.data.token;
                 Auth.logIn(token);
                 this.setState({ redirectToReferrer: true });
             })

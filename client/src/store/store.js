@@ -7,7 +7,10 @@ import rootReducer from '../reducers';
 
 const client = axios.create({
     baseURL:'',
-    responseType: 'json'
+    responseType: 'json',
+    headers: {
+      Authorization: `JWT ${localStorage.token}`
+    }
 });
 
 const middleware = [axiosMiddleware(client)];
